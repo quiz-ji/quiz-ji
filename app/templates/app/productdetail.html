@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product Detail{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-6 text-center align-self-center">
+   <img src="{% static 'app/images/product/00.jpg' %}" alt="" class="img-fluid img-thumbnail">
+  </div>
+  <div class="col-sm-5 offset-sm-1">
+   <h2>Product Title: CBSE class 11th Physics</h2>
+   <hr>
+   <p>Product Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, at. Dignissimos rerum incidunt temporibus laudantium. Rem, eveniet corporis. Itaque delectus quae nesciunt nemo, maiores minus deserunt vel. Vero, nulla quisquam!</p> <br>
+   <h4>Rs. 13999 <small class="fw-light text-decoration-line-through">15999</small></h4> <br>
+   <a href="{% url 'add-to-cart' %}" class="btn btn-primary shadow px-5 py-2">Add to Cart</a>
+   <a href="{% url 'buy-now' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+   <h5 class="mt-5">Available Offers</h5>
+   <ul>
+    <li>Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit</li>
+    <li>Buy any of three Paper and one paper Free (price inclusive of discount)</li>
+    <li>After Quiz get chapter Video explanation</li>
+    <li>Cover last 20 year CBSE Papers </li>
+   </ul>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
