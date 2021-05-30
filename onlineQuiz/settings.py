@@ -88,7 +88,6 @@ DATABASES = {
         'PASSWORD':'Quiz@999',
         'HOST':'localhost',
         'PORT':'5432'
-        
     }
 }
 
