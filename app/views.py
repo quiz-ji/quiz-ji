@@ -1,10 +1,23 @@
 from django.shortcuts import render
+from django.views import View
+from.models import Customer,Product,Cart,OrderPlaced
+class Product_view(View):
+      def get(self,request):
+        academic=Product.objects.filter(category='AC')
+        compatitive=Product.objects.filter(category='COMP')
+        context={
+            'academic': academic,
+            'compatitive': compatitive
+        }
+        return render(request, 'app/home.html',context)
 
-def home(request):
- return render(request, 'app/home.html')
+class Product_detail(View):
+      def get(self,request,pk):
+        product=Product.objects.get(pk=pk)
+        print(product.title)
+        return render(request, 'app/productdetail.html',{'product':product})
 
-def product_detail(request):
- return render(request, 'app/productdetail.html')
+
 
 def add_to_cart(request):
  return render(request, 'app/addtocart.html')

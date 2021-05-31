@@ -49,16 +49,11 @@
  <h2>Acedemic Quizji</h2>
  <!-- Slider 1 -->
  <div class="owl-carousel" id="slider1">
-  <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{% static 'app/images/product/00.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Physics 11th</span><br><span class="fs-5">Rs.2800</span></div></a>
-  <div class="item"><img src="{% static 'app/images/product/22.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Chemistry 11th</span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/33.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Math 11th</span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/44.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Biology 11th</span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/55.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Biology 12th </span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/66.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Math 12th </span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/77.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Chemistry 12th</span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/88.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Physics 12th</span><br><span class="fs-5">Rs.2800</span></div>
-  
+  {% for a in academic %}
+  <a href="{% url 'product-detail' a.id  %}" class="btn"><div class="item"><img src="{{ a.product_image.url }}" alt="" height="200px"><span class="fw-bold">{{ a.title }}</span><br><span class="fs-5">{{ a.selling_price }}</span></div></a>
+  {% endfor %}  
  </div>
+
 </div>
 <!-- End 1st Product Slider -->
 
@@ -102,11 +97,10 @@
  <h2>Compitative Quizji</h2>
  <!-- Slider 2 -->
  <div class="owl-carousel" id="slider2">
-  <div class="item"><img src="{% static 'app/images/product/77.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Chemistry 12th</span><br><span class="fs-5">Rs.2800</span></div>
-  <div class="item"><img src="{% static 'app/images/product/88.jpg' %}" alt="" height="200px"><span class="fw-bold">CBSE Physics 12th</span><br><span class="fs-5">Rs.2800</span></div>
-  
- </div>
- </div>
+  {% for a in compatitive %}
+  <div class="item"><img src="{{ a.product_image.url }}" alt="" height="200px"><span class="fw-bold">{{ a.title }}</span><br><span class="fs-5"></span>{{ a.selling_price }}</div>
+  {% endfor %}
+</div>
 </div>
 <!-- End 2nd Product Slider -->
 {% endblock main-content %}
