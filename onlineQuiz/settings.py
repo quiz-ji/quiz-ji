@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'multichoice',
     'quizji',
     'true_false',
-    'django_mathjax',
+    
 
     ]
 
