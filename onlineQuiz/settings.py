@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'storages'
+    'storages',
+
 ]
 
+
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -141,21 +144,19 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 DEFAULT_FILE_STORAGE = 'onlineQuiz.storage_backends.MediaStorage'  
-AWS_S3_REGION_NAME = 'Asia Pacific (Mumbai) ap-south-1'
+AWS_S3_REGION_NAME = 'Asia Pacific(Mumbai) ap-south-1'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STATIC_URL='/static/'
+STATICFILES_DIRS=(
+       os.path.join(BASE_DIR, 'static'),   
 
-
-django_heroku.settings(locals())
-
-STATIC_URL = '/static/'#location where django collect all staticfiles
-STATIC_ROOT = os.path.join(BASE_DIR,' staticfile ')# location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-
-MEDIA_URL= '/media/'
+)
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL= '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR,' staticfile ')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
