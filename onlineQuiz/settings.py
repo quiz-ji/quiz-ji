@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,8 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 DEFAULT_FILE_STORAGE = 'onlineQuiz.storage_backends.MediaStorage'  
-
+AWS_S3_REGION_NAME = 'Asia Pacific (Mumbai) ap-south-1'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
