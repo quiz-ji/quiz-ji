@@ -44,8 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'storages',
+    'essay',
+    'media',
+    'multichoice',
+    'quizji',
+    'true_false',
+    'django_mathjax',
 
-]
+    ]
 
 
 MIDDLEWARE = [
@@ -133,18 +139,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MATHJAX_LOCAL_PATH = 'js/libs/mathjax/'
+MATHJAX_CONFIG_FILE = "TeX-AMS-MML_HTMLorMML"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-AWS_ACCESS_KEY_ID = 'AKIAXUEB6SMKASVVTA4D'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'quizji'
+AWS_ACCESS_KEY_ID = 'AKIAXUEB6SMKEMJB466F'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'quizjibucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 DEFAULT_FILE_STORAGE = 'onlineQuiz.storage_backends.MediaStorage'  
-
+AWS_S3_REGION_NAME = 'ap-south-1'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
